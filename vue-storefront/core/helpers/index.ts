@@ -66,7 +66,7 @@ export function getThumbnailPath (relativeUrl: string, width: number = 0, height
       baseUrl = baseUrl.replace('{{height}}', height.toString())
       resultUrl = baseUrl
     } else {
-      resultUrl = `${baseUrl}${width.toString()}/${height.toString()}/resize${relativeUrl}`
+      resultUrl = `${baseUrl}/${relativeUrl}`
     }
     const path = relativeUrl && relativeUrl.indexOf('no_selection') < 0 ? resultUrl : config.images.productPlaceholder || ''
 
