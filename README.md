@@ -92,11 +92,22 @@ https://www.php.net/manual/en/timezones.europe.php
 # [![](https://bitbag.io/wp-content/uploads/2020/10/vsf.png)](https://bitbag.io/contact-us/?utm_source=github&utm_medium=referral&utm_campaign=plugins_vsf)
 # BitBag SyliusVueStorefrontPlugin
 
+Install Elasticsearch
+---------------
+https://www.willandskill.se/en/install-elasticsearch-6-x-on-ubuntu-18-04-lts/
 
+Follow BitBag SyliusVueStorefrontPlugin
+---------------
+https://github.com/BitBagCommerce/SyliusVueStorefrontPlugin
 
+```bash
+$ php bin/console doctrine:schema:update --force
+$ php bin/console sylius:fixtures:load
+$ php bin/console fos:elastica:populate
+```
 
-
-
+Clear cache
+sudo php bin/console cache:clear --env=prod
 
 MIT License
 -----------
