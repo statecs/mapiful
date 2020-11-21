@@ -1,0 +1,4 @@
+[submodule "vue-storefront/src/themes/default"]
+	path = vue-storefront/src/themes/default
+	url = git@github.com:DivanteLtd/vsf-default.git
+	branch = master
