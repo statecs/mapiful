@@ -4,14 +4,26 @@
       <main-slider />
     </no-ssr>
 
-    <promoted-offers />
+    <section class="new-collection container px15">
+      <div>
+        <header class="col-md-12">
+          <h4 class="align-left cl-accent">
+            {{ $t("Shop Prints Range") }}
+          </h4>
+        </header>
+      </div>
+    </section>
+
+    <section v-if="isOnline" class="container pb60 px15">
+      <tile-links />
+    </section>
 
     <section class="new-collection container px15">
       <div>
         <header class="col-md-12">
-          <h2 class="align-center cl-accent">
-            {{ $t("Everything new") }}
-          </h2>
+          <h4 class="align-left cl-accent">
+            {{ $t("Featured products") }}
+          </h4>
         </header>
       </div>
       <div class="row center-xs">
@@ -26,22 +38,6 @@
       </div>
     </section>
 
-    <section v-if="isOnline" class="container pb60 px15">
-      <div class="row center-xs">
-        <header
-          class="col-md-12"
-          :class="{
-            pt40:
-              getEverythingNewCollection && getEverythingNewCollection.length,
-          }"
-        >
-          <h2 class="align-center cl-accent">
-            {{ $t("Get inspired") }}
-          </h2>
-        </header>
-      </div>
-      <tile-links />
-    </section>
     <Onboard />
   </div>
 </template>
