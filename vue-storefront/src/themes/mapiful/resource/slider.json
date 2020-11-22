@@ -1,26 +1,19 @@
 {
   "slides": [
     {
-      "title": "Luma Yoga",
-      "subtitle": "New collection",
-      "button_text": "Shop now",
-      "image": "/assets/slide_01.jpg",
-      "link": "/women.html"
+      "title": "Customizable prints that tell your stories.",
+      "subtitle": "At Mapiful, we believe that your home should be a reflection of your own unique personality, and bringing simple joy into the spaces where people live is what drives us each day.",
+      "button_text": "Design your own",
+      "image": "/assets/full_width_banner.jpg",
+      "link": "/category"
     },
     {
-      "title": "Luma Fitness",
-      "subtitle": "Collection",
-      "button_text": "Shop now",
-      "image": "/assets/slide_02.jpg",
-      "link": "/men.html"
-    },
-    {
-      "title": "Luma Fitness",
-      "subtitle": "What's new",
-      "button_text": "Shop now",
-      "image": "/assets/slide_03.jpg",
-      "link": "/training.html"
+      "title": "Customizable prints that tell your stories.",
+      "subtitle": "At Mapiful, we believe that your home should be a reflection of your own unique personality, and bringing simple joy into the spaces where people live is what drives us each day.",
+      "button_text": "Design your own",
+      "image": "/assets/full_width_banner.jpg",
+      "link": "/category"
     }
   ],
-  "total": "3"
+  "total": "2"
 }

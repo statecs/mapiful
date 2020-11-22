@@ -7,29 +7,43 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
-const DefaultLayout = () => import(/* webpackChunkName: "vsf-layout-default" */ './layouts/Default')
-const EmptyLayout = () => import(/* webpackChunkName: "vsf-layout-empty" */ './layouts/Empty')
-const MinimalLayout = () => import(/* webpackChunkName: "vsf-layout-minimal" */ './layouts/Minimal')
+import { mapState } from "vuex";
+const DefaultLayout = () =>
+  import(/* webpackChunkName: "vsf-layout-default" */ "./layouts/Default");
+const EmptyLayout = () =>
+  import(/* webpackChunkName: "vsf-layout-empty" */ "./layouts/Empty");
+const MinimalLayout = () =>
+  import(/* webpackChunkName: "vsf-layout-minimal" */ "./layouts/Minimal");
 
 export default {
-  data () {
+  data() {
     return {
-      ordersData: []
-    }
+      ordersData: [],
+    };
   },
   computed: {
     ...mapState({
-      overlayActive: state => state.ui.overlay
+      overlayActive: (state) => state.ui.overlay,
     }),
-    layout () {
-      return `${(this.$route.meta.layout || 'default')}-layout`
-    }
+    layout() {
+      return `${this.$route.meta.layout || "default"}-layout`;
+    },
   },
   components: {
     DefaultLayout,
     EmptyLayout,
-    MinimalLayout
-  }
-}
+    MinimalLayout,
+  },
+};
 </script>
+
+<style lang="scss" scoped>
+#app {
+  max-width: 1111px;
+  padding-right: 20px;
+  padding-left: 20px;
+  margin-right: auto;
+  margin-left: auto;
+}
+</style>
+
