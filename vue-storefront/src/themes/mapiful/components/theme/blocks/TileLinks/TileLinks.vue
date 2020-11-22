@@ -29,55 +29,55 @@ export default {
           image: "/assets/ig/ig01.jpg",
           alt: "Woman holding in a map on the wall",
           text: "Shop Maps",
-          link: "/category/maps",
+          link: "/category",
         },
         {
           image: "/assets/ig/ig02.jpg",
           alt: "Two hands touching a star print",
           text: "Shop Stars",
-          link: "/category/stars",
+          link: "/category",
         },
         {
           image: "/assets/ig/ig03.jpg",
           alt: "A zodiac print with books around it",
           text: "Shop Zodiacs",
-          link: "/category/zodiacs",
+          link: "/category",
         },
         {
           alt:
             "Customize these meaningful gifts. With Mapiful you are the designer. Tell your stories your way, always.",
           text: "Tell your story",
-          link: "/category/textart",
+          link: "/category",
         },
         {
           alt:
             "You are unique and there is no reason that your home and art should not reflect that too.",
           text: "You are the creative",
-          link: "/category/textart",
+          link: "/category",
         },
         {
           alt:
             "We use high quality, museum graded paper and print with inks that withstand the tests of time.",
           text: "We take pride in quality",
-          link: "/category/textart",
+          link: "/category",
         },
         {
           image: "/assets/ig/ig04.jpg",
           alt: "A woman holding up a text art print",
           text: "Shop Text Art",
-          link: "/category/textart",
+          link: "/category",
         },
         {
           image: "/assets/ig/ig05.jpg",
           alt: "A black frame standing up",
           text: "Shop Frames",
-          link: "/category/frames",
+          link: "/category",
         },
         {
           image: "/assets/ig/ig06.jpg",
           alt: "A white frame hanger",
           text: "Shop Hangers",
-          link: "/category/hangers",
+          link: "/category",
         },
       ],
     };
