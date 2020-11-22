@@ -1,14 +1,17 @@
 <template>
   <div class="header">
     <header
-      class="fixed w-100 brdr-bottom-1 bg-cl-primary brdr-cl-secondary"
+      class="w-100 brdr-bottom-1 bg-cl-primary brdr-cl-secondary"
       :class="{ 'is-visible': navVisible }"
     >
       <div class="container px15">
-        <div class="row between-xs middle-xs" v-if="!isCheckoutPage || isThankYouPage">
+        <div
+          class="row between-xs middle-xs"
+          v-if="!isCheckoutPage || isThankYouPage"
+        >
           <div class="col-md-4 col-xs-2 middle-xs">
             <div>
-              <hamburger-icon class="p15 icon bg-cl-secondary pointer" />
+              <hamburger-icon class="p15 icon pointer" />
             </div>
           </div>
           <div class="col-xs-2 visible-xs">
@@ -32,14 +35,14 @@
             </div>
           </div>
         </div>
-        <div class="row between-xs middle-xs px15 py5" v-if="isCheckoutPage && !isThankYouPage">
+        <div
+          class="row between-xs middle-xs px15 py5"
+          v-if="isCheckoutPage && !isThankYouPage"
+        >
           <div class="col-xs-5 col-md-3 middle-xs">
             <div>
-              <router-link
-                :to="localizedRoute('/')"
-                class="cl-tertiary links"
-              >
-                {{ $t('Return to shopping') }}
+              <router-link :to="localizedRoute('/')" class="cl-tertiary links">
+                {{ $t("Return to shopping") }}
               </router-link>
             </div>
           </div>
@@ -53,8 +56,11 @@
                 href="#"
                 @click.prevent="gotoAccount"
                 class="cl-tertiary links"
-              >{{ $t('Login to your account') }}</a>
-              <span v-else>{{ $t('You are logged in as {firstname}', currentUser) }}</span>
+                >{{ $t("Login to your account") }}</a
+              >
+              <span v-else>{{
+                $t("You are logged in as {firstname}", currentUser)
+              }}</span>
             </div>
           </div>
         </div>
@@ -65,18 +71,18 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
-import CurrentPage from 'theme/mixins/currentPage'
-import AccountIcon from 'theme/components/core/blocks/Header/AccountIcon'
-import CompareIcon from 'theme/components/core/blocks/Header/CompareIcon'
-import HamburgerIcon from 'theme/components/core/blocks/Header/HamburgerIcon'
-import Logo from 'theme/components/core/Logo'
-import MicrocartIcon from 'theme/components/core/blocks/Header/MicrocartIcon'
-import SearchIcon from 'theme/components/core/blocks/Header/SearchIcon'
-import WishlistIcon from 'theme/components/core/blocks/Header/WishlistIcon'
+import { mapState } from "vuex";
+import CurrentPage from "theme/mixins/currentPage";
+import AccountIcon from "theme/components/core/blocks/Header/AccountIcon";
+import CompareIcon from "theme/components/core/blocks/Header/CompareIcon";
+import HamburgerIcon from "theme/components/core/blocks/Header/HamburgerIcon";
+import Logo from "theme/components/core/Logo";
+import MicrocartIcon from "theme/components/core/blocks/Header/MicrocartIcon";
+import SearchIcon from "theme/components/core/blocks/Header/SearchIcon";
+import WishlistIcon from "theme/components/core/blocks/Header/WishlistIcon";
 
 export default {
-  name: 'Header',
+  name: "Header",
   components: {
     AccountIcon,
     CompareIcon,
@@ -84,68 +90,68 @@ export default {
     Logo,
     MicrocartIcon,
     SearchIcon,
-    WishlistIcon
+    WishlistIcon,
   },
   mixins: [CurrentPage],
-  data () {
+  data() {
     return {
       navVisible: true,
       isScrolling: false,
       scrollTop: 0,
       lastScrollTop: 0,
-      navbarHeight: 54
-    }
+      navbarHeight: 54,
+    };
   },
   computed: {
     ...mapState({
-      isOpenLogin: state => state.ui.signUp,
-      currentUser: state => state.user.current
+      isOpenLogin: (state) => state.ui.signUp,
+      currentUser: (state) => state.user.current,
     }),
-    isThankYouPage () {
+    isThankYouPage() {
       return this.$store.state.checkout.isThankYouPage
         ? this.$store.state.checkout.isThankYouPage
-        : false
-    }
+        : false;
+    },
   },
-  beforeMount () {
+  beforeMount() {
     window.addEventListener(
-      'scroll',
+      "scroll",
       () => {
-        this.isScrolling = true
+        this.isScrolling = true;
       },
       { passive: true }
-    )
+    );
 
     setInterval(() => {
       if (this.isScrolling) {
-        this.hasScrolled()
-        this.isScrolling = false
+        this.hasScrolled();
+        this.isScrolling = false;
       }
-    }, 250)
+    }, 250);
   },
   methods: {
-    gotoAccount () {
-      this.$bus.$emit('modal-toggle', 'modal-signup')
+    gotoAccount() {
+      this.$bus.$emit("modal-toggle", "modal-signup");
     },
-    hasScrolled () {
-      this.scrollTop = window.scrollY
+    hasScrolled() {
+      this.scrollTop = window.scrollY;
       if (
         this.scrollTop > this.lastScrollTop &&
         this.scrollTop > this.navbarHeight
       ) {
-        this.navVisible = false
+        this.navVisible = false;
       } else {
-        this.navVisible = true
+        this.navVisible = true;
       }
-      this.lastScrollTop = this.scrollTop
-    }
-  }
-}
+      this.lastScrollTop = this.scrollTop;
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
-@import '~theme/css/variables/colors';
-@import '~theme/css/helpers/functions/color';
+@import "~theme/css/variables/colors";
+@import "~theme/css/helpers/functions/color";
 $color-icon-hover: color(secondary, $colors-background);
 
 header {

@@ -38,7 +38,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import url("https://fonts.googleapis.com/css2?family=Lora:wght@400;500;700&display=swap");
+
+html,
+body {
+  font-family: "Lora", serif;
+}
+
 #app {
+  font-family: "Lora", serif;
   max-width: 1111px;
   padding-right: 20px;
   padding-left: 20px;
