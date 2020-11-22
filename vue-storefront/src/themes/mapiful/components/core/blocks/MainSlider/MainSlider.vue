@@ -173,10 +173,6 @@ export default {
   .slideshow-slide-info {
     margin-top: 15%;
   }
-  .slideshow-slide-info h1,
-  .slideshow-slide-info p {
-    width: 70%;
-  }
   .slideshow-slide-image {
     float: right;
     width: auto;
