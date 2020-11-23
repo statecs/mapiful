@@ -4,6 +4,7 @@ const PageNotFound = () => import(/* webpackChunkName: "vsf-not-found" */ 'theme
 const ErrorPage = () => import(/* webpackChunkName: "vsf-error" */ 'theme/pages/Error.vue')
 const Product = () => import(/* webpackChunkName: "vsf-product" */ 'theme/pages/Product.vue')
 const Category = () => import(/* webpackChunkName: "vsf-category" */ 'theme/pages/Category.vue')
+const CategoryHome = () => import(/* webpackChunkName: "vsf-category" */ 'theme/pages/CategoryHome.vue')
 const CmsPage = () => import(/* webpackChunkName: "vsf-cms" */ 'theme/pages/CmsPage.vue')
 const Checkout = () => import(/* webpackChunkName: "vsf-checkout" */ 'theme/pages/Checkout.vue')
 const Compare = () => import(/* webpackChunkName: "vsf-compare" */ 'theme/pages/Compare.vue')
@@ -12,7 +13,7 @@ const Static = () => import(/* webpackChunkName: "vsf-static" */ 'theme/pages/St
 const ResetPassword = () => import(/* webpackChunkName: "vsf-reset-password" */ 'theme/pages/ResetPassword.vue');
 
 let routes = [
-  { name: 'home', path: '/', component: Home, alias: '/pwa.html' },
+  { name: 'home', path: '/', component: CategoryHome, alias: '/pwa.html' },
   { name: 'home2', path: '/home2', component: Home2, alias: '/pwa.html' },
   { name: 'checkout', path: '/checkout', component: Checkout },
   { name: 'legal', path: '/legal', component: Static, props: { page: 'lorem', title: 'Legal Notice' }, meta: { title: 'Legal Notice', description: 'Legal Notice - example of description usage' } },
