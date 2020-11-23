@@ -27,6 +27,7 @@
         </header>
       </div>
       <div class="row center-xs">
+        <category-list />
         <lazy-hydrate :trigger-hydration="!loading" v-if="isLazyHydrateEnabled">
           <product-listing columns="4" :products="getEverythingNewCollection" />
         </lazy-hydrate>
@@ -51,6 +52,7 @@ import LazyHydrate from "vue-lazy-hydration";
 import ProductListing from "theme/components/core/ProductListing";
 import HeadImage from "theme/components/core/blocks/MainSlider/HeadImage";
 import MainSlider from "theme/components/core/blocks/MainSlider/MainSlider";
+import CategoryList from "theme/pages/CategoryList";
 
 // Theme local components
 import Onboard from "theme/components/theme/blocks/Home/Onboard";
@@ -69,6 +71,7 @@ export default {
     };
   },
   components: {
+    CategoryList,
     MainSlider,
     HeadImage,
     Onboard,

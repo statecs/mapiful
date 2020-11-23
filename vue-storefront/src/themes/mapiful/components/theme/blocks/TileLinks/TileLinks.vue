@@ -29,55 +29,55 @@ export default {
           image: "/assets/ig/ig01.jpg",
           alt: "Woman holding in a map on the wall",
           text: "Shop Maps",
-          link: "/category",
+          link: "/maps",
         },
         {
           image: "/assets/ig/ig02.jpg",
           alt: "Two hands touching a star print",
           text: "Shop Stars",
-          link: "/category",
+          link: "/stars",
         },
         {
           image: "/assets/ig/ig03.jpg",
           alt: "A zodiac print with books around it",
           text: "Shop Zodiacs",
-          link: "/category",
+          link: "/zodiacs",
         },
         {
           alt:
             "Customize these meaningful gifts. With Mapiful you are the designer. Tell your stories your way, always.",
           text: "Tell your story",
-          link: "/category",
+          link: "/textart",
         },
         {
           alt:
             "You are unique and there is no reason that your home and art should not reflect that too.",
           text: "You are the creative",
-          link: "/category",
+          link: "/textart",
         },
         {
           alt:
             "We use high quality, museum graded paper and print with inks that withstand the tests of time.",
           text: "We take pride in quality",
-          link: "/category",
+          link: "/textart",
         },
         {
           image: "/assets/ig/ig04.jpg",
           alt: "A woman holding up a text art print",
           text: "Shop Text Art",
-          link: "/category",
+          link: "/textart",
         },
         {
           image: "/assets/ig/ig05.jpg",
           alt: "A black frame standing up",
           text: "Shop Frames",
-          link: "/category",
+          link: "/frames",
         },
         {
           image: "/assets/ig/ig06.jpg",
           alt: "A white frame hanger",
           text: "Shop Hangers",
-          link: "/category",
+          link: "/hangers",
         },
       ],
     };
