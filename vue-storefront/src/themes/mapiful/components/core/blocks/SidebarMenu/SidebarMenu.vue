@@ -1,10 +1,7 @@
 <template>
   <div class="sidebar-menu fixed mw-100 bg-cl-secondary">
     <div class="row brdr-bottom-1 brdr-cl-bg-secondary">
-      <div
-        v-if="submenu.depth"
-        class="col-xs bg-cl-primary"
-      >
+      <div v-if="submenu.depth" class="col-xs bg-cl-primary">
         <sub-btn type="back" class="bg-cl-transparent brdr-none" />
       </div>
       <div class="col-xs bg-cl-primary">
@@ -18,6 +15,7 @@
         </button>
       </div>
     </div>
+    <div></div>
     <div class="sidebar-menu__container row" ref="container">
       <div class="col-xs-12 h4 serif">
         <ul class="p0 m0 relative sidebar-menu__list" :style="mainListStyles">
@@ -30,7 +28,7 @@
               :to="localizedRoute('/')"
               exact
             >
-              {{ $t('Home') }}
+              {{ $t("Home") }}
             </router-link>
           </li>
           <li
@@ -39,10 +37,7 @@
             @click="closeMenu"
             v-for="category in visibleCategories"
           >
-            <div
-              v-if="isCurrentMenuShowed"
-              class="subcategory-item"
-            >
+            <div v-if="isCurrentMenuShowed" class="subcategory-item">
               <sub-btn
                 v-if="category.children_count > 0"
                 class="bg-cl-transparent brdr-none fs-medium"
@@ -65,6 +60,24 @@
               :parent-path="category.url_path"
             />
           </li>
+          <vue-horizontal-list :items="items" :options="options">
+            <template v-slot:default="{ item }">
+              <div>
+                <router-link
+                  class="px25 py20 cl-accent no-underline col-xs"
+                  :to="item.link"
+                >
+                  <div class="image-container">
+                    <div class="image-content">
+                      <img :src="item.image" />
+                    </div>
+                  </div>
+
+                  <div class="subtitle">{{ item.title }}</div>
+                </router-link>
+              </div>
+            </template>
+          </vue-horizontal-list>
           <li
             v-if="isCurrentMenuShowed"
             @click="closeMenu"
@@ -75,7 +88,7 @@
               :to="localizedRoute('/sale')"
               exact
             >
-              {{ $t('Sale') }}
+              {{ $t("Sale") }}
             </router-link>
           </li>
           <li
@@ -88,7 +101,7 @@
               :to="localizedRoute('/magazine')"
               exact
             >
-              {{ $t('Magazine') }}
+              {{ $t("Magazine") }}
             </router-link>
           </li>
           <li
@@ -101,7 +114,7 @@
               :to="localizedRoute('/compare')"
               exact
             >
-              {{ $t('Compare products') }}
+              {{ $t("Compare products") }}
             </router-link>
           </li>
           <li
@@ -127,7 +140,7 @@
               @click.prevent="closeMenu"
               class="block w-100 px25 py20 cl-accent no-underline fs-medium-small"
             >
-              {{ $t('My account') }}
+              {{ $t("My account") }}
             </a>
           </li>
         </ul>
@@ -137,107 +150,158 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
-import i18n from '@vue-storefront/i18n'
-import SidebarMenu from '@vue-storefront/core/compatibility/components/blocks/SidebarMenu/SidebarMenu'
-import SubBtn from 'theme/components/core/blocks/SidebarMenu/SubBtn'
-import SubCategory from 'theme/components/core/blocks/SidebarMenu/SubCategory'
-import { formatCategoryLink } from '@vue-storefront/core/modules/url/helpers'
-import { disableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock'
+import { mapState } from "vuex";
+import i18n from "@vue-storefront/i18n";
+import SidebarMenu from "@vue-storefront/core/compatibility/components/blocks/SidebarMenu/SidebarMenu";
+import SubBtn from "theme/components/core/blocks/SidebarMenu/SubBtn";
+import SubCategory from "theme/components/core/blocks/SidebarMenu/SubCategory";
+import { formatCategoryLink } from "@vue-storefront/core/modules/url/helpers";
+import { disableBodyScroll, clearAllBodyScrollLocks } from "body-scroll-lock";
+import VueHorizontalList from "vue-horizontal-list";
 
 export default {
   components: {
     SubCategory,
-    SubBtn
+    SubBtn,
+    VueHorizontalList,
   },
   mixins: [SidebarMenu],
-  data () {
+  data() {
     return {
+      items: [
+        {
+          title: "Shop Maps",
+          content:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas non sagittis leo. Vestibulum sit amet metus nec neque dignissim dapibus.",
+          image: "/assets/ig/ig01.jpg",
+          link: "/maps",
+        },
+        {
+          title: "Shop Stars",
+          content:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec id mollis erat. Aliquam erat volutpat. Nunc erat lacus, rhoncus nec.",
+          image: "/assets/ig/ig02.jpg",
+          link: "/stars",
+        },
+        {
+          title: "Shop Zodiacs",
+          content:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ac diam ac ex efficitur posuere. Pellentesque cursus pellentesque risus, non.",
+          image: "/assets/ig/ig03.jpg",
+          link: "/zodiacs",
+        },
+        {
+          title: "Shop Text Art",
+          content:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi malesuada varius nibh, a malesuada nisi feugiat eget. Aenean convallis semper.",
+          image: "/assets/ig/ig04.jpg",
+          link: "/textart",
+        },
+        {
+          title: "Shop Frames",
+          content:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas fringilla tempor libero sit amet mollis. Praesent quis leo erat. Integer.",
+          image: "/assets/ig/ig05.jpg",
+          link: "/frames",
+        },
+        {
+          title: "Shop Hangers",
+          content:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sit amet fringilla ante. Quisque at ipsum non lacus consequat dictum.",
+          image: "/assets/ig/ig06.jpg",
+          link: "/hangers",
+        },
+      ],
+      options: {
+        responsive: [{ end: 576, size: 3 }],
+      },
       myAccountLinks: [
         {
           id: 1,
-          name: i18n.t('My profile'),
-          url: '/my-account'
+          name: i18n.t("My profile"),
+          url: "/my-account",
         },
         {
           id: 2,
-          name: i18n.t('My shipping details'),
-          url: '/my-account/shipping-details'
+          name: i18n.t("My shipping details"),
+          url: "/my-account/shipping-details",
         },
         {
           id: 3,
-          name: i18n.t('My newsletter'),
-          url: '/my-account/newsletter'
+          name: i18n.t("My newsletter"),
+          url: "/my-account/newsletter",
         },
         {
           id: 4,
-          name: i18n.t('My orders'),
-          url: '/my-account/orders'
+          name: i18n.t("My orders"),
+          url: "/my-account/orders",
         },
         {
           id: 5,
-          name: i18n.t('My loyalty card'),
-          url: '#'
+          name: i18n.t("My loyalty card"),
+          url: "#",
         },
         {
           id: 6,
-          name: i18n.t('My product reviews'),
-          url: '#'
-        }
+          name: i18n.t("My product reviews"),
+          url: "#",
+        },
       ],
-      componentLoaded: false
-    }
+      componentLoaded: false,
+    };
   },
   computed: {
-    mainListStyles () {
-      return this.submenu.depth ? `transform: translateX(${this.submenu.depth * 100}%)` : false
+    mainListStyles() {
+      return this.submenu.depth
+        ? `transform: translateX(${this.submenu.depth * 100}%)`
+        : false;
     },
     ...mapState({
-      submenu: state => state.ui.submenu,
-      currentUser: state => state.user.current
+      submenu: (state) => state.ui.submenu,
+      currentUser: (state) => state.user.current,
     }),
-    getSubmenu () {
-      return this.submenu
+    getSubmenu() {
+      return this.submenu;
     },
-    visibleCategories () {
-      return this.categories.filter(category => {
-        return category.product_count > 0 || category.children_count > 0
-      })
+    visibleCategories() {
+      return this.categories.filter((category) => {
+        return category.product_count > 0 || category.children_count > 0;
+      });
     },
-    isCurrentMenuShowed () {
-      return !this.getSubmenu || !this.getSubmenu.depth
-    }
+    isCurrentMenuShowed() {
+      return !this.getSubmenu || !this.getSubmenu.depth;
+    },
   },
-  mounted () {
+  mounted() {
     this.$nextTick(() => {
       this.componentLoaded = true;
-      disableBodyScroll(this.$refs.container)
-    })
+      disableBodyScroll(this.$refs.container);
+    });
   },
-  destroyed () {
-    clearAllBodyScrollLocks()
+  destroyed() {
+    clearAllBodyScrollLocks();
   },
   methods: {
-    login () {
+    login() {
       if (!this.currentUser && this.isCurrentMenuShowed) {
         this.$nextTick(() => {
-          this.$store.commit('ui/setAuthElem', 'login')
-          this.$bus.$emit('modal-show', 'modal-signup')
-          this.$router.push({ name: 'my-account' })
-        })
+          this.$store.commit("ui/setAuthElem", "login");
+          this.$bus.$emit("modal-show", "modal-signup");
+          this.$router.push({ name: "my-account" });
+        });
       }
     },
-    categoryLink (category) {
-      return formatCategoryLink(category)
-    }
-  }
-}
+    categoryLink(category) {
+      return formatCategoryLink(category);
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
 @import "~theme/css/animations/transitions";
-@import '~theme/css/variables/colors';
-@import '~theme/css/helpers/functions/color';
+@import "~theme/css/variables/colors";
+@import "~theme/css/helpers/functions/color";
 $bg-secondary: color(secondary, $colors-background);
 $color-gainsboro: color(gainsboro);
 $color-matterhorn: color(matterhorn);
@@ -247,6 +311,8 @@ $color-mine-shaft: color(mine-shaft);
   height: 100vh;
   width: 350px;
   overflow: hidden;
+  color: #fff;
+  background-color: #141415;
 
   @media (max-width: 767px) {
     width: 100vh;
@@ -288,7 +354,8 @@ $color-mine-shaft: color(mine-shaft);
   }
 
   button {
-    color: $color-mine-shaft;a {
+    color: $color-mine-shaft;
+    a {
       color: $color-mine-shaft;
     }
   }
@@ -304,6 +371,57 @@ $color-mine-shaft: color(mine-shaft);
       }
     }
   }
+}
+p,
+h3,
+h2 {
+  margin-top: 4px;
+  overflow: hidden;
+  display: -webkit-box;
+  text-overflow: ellipsis;
+  word-break: break-word;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+.subtitle {
+  margin-top: 10px;
+  font-size: 12px;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 8px;
+}
+.image-container {
+  border-radius: 3px;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  padding-top: 120%;
+}
 
+.image-text {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  padding: 32px 24px;
+  display: flex;
+  align-items: flex-end;
+  background: rgba(0, 0, 0, 0.4);
+}
+.image-text h2 {
+  margin: 0;
+  color: white;
+  text-align: center;
+}
+img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 </style>
