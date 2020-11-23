@@ -29,7 +29,7 @@
       <div id="category">
         <div class="container pb60">
           <div class="row m0 pt15">
-            <div class="px10 border-box products-list">
+            <div class="col-md-9 px10 border-box products-list">
               <div v-if="isCategoryEmpty" class="hidden-xs">
                 <h4 data-testid="noProductsInfo">
                   {{ $t("No products found!") }}
