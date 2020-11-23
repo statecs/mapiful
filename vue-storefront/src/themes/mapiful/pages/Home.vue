@@ -39,6 +39,10 @@
       </div>
     </section>
 
+    <no-ssr>
+      <review-slider />
+    </no-ssr>
+
     <Onboard />
   </div>
 </template>
@@ -52,6 +56,7 @@ import LazyHydrate from "vue-lazy-hydration";
 import ProductListing from "theme/components/core/ProductListing";
 import HeadImage from "theme/components/core/blocks/MainSlider/HeadImage";
 import MainSlider from "theme/components/core/blocks/MainSlider/MainSlider";
+import ReviewSlider from "theme/components/core/blocks/ReviewSlider/ReviewSlider";
 import CategoryList from "theme/pages/CategoryList";
 
 // Theme local components
@@ -73,6 +78,7 @@ export default {
   components: {
     CategoryList,
     MainSlider,
+    ReviewSlider,
     HeadImage,
     Onboard,
     ProductListing,
