@@ -1,19 +1,11 @@
 <template>
   <div id="home">
     <no-ssr>
-      <main-slider />
+      <grid-collection />
     </no-ssr>
 
-    <promoted-offers />
-
     <section class="new-collection container px15">
-      <div>
-        <header class="col-md-12">
-          <h2 class="align-center cl-accent">
-            {{ $t("Everything new") }}
-          </h2>
-        </header>
-      </div>
+      <div></div>
       <div class="row center-xs">
         <lazy-hydrate :trigger-hydration="!loading" v-if="isLazyHydrateEnabled">
           <product-listing columns="4" :products="getEverythingNewCollection" />
@@ -27,19 +19,6 @@
     </section>
 
     <section v-if="isOnline" class="container pb60 px15">
-      <div class="row center-xs">
-        <header
-          class="col-md-12"
-          :class="{
-            pt40:
-              getEverythingNewCollection && getEverythingNewCollection.length,
-          }"
-        >
-          <h2 class="align-center cl-accent">
-            {{ $t("Get inspired") }}
-          </h2>
-        </header>
-      </div>
       <tile-links />
     </section>
     <Onboard />
@@ -55,6 +34,7 @@ import LazyHydrate from "vue-lazy-hydration";
 import ProductListing from "theme/components/core/ProductListing";
 import HeadImage from "theme/components/core/blocks/MainSlider/HeadImage";
 import MainSlider from "theme/components/core/blocks/MainSlider/MainSlider";
+import GridCollection from "theme/components/core/blocks/GridCollection/GridCollection";
 
 // Theme local components
 import Onboard from "theme/components/theme/blocks/Home/Onboard";
@@ -80,6 +60,7 @@ export default {
     PromotedOffers,
     TileLinks,
     LazyHydrate,
+    GridCollection,
   },
   computed: {
     ...mapGetters("user", ["isLoggedIn"]),
